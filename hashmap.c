@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:14:30 by lcottet           #+#    #+#             */
-/*   Updated: 2024/02/24 15:50:52 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/24 15:53:44 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	clear_map(t_hashmap *map)
 			free(((t_pair *)map->members[i].pairs.ptr)[j].value);
 			j++;
 		}
-		i++;
 		clear_vector(&map->members[i].pairs);
+		i++;
 	}
 }
