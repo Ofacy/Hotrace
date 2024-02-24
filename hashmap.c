@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:14:30 by lcottet           #+#    #+#             */
-/*   Updated: 2024/02/24 15:36:01 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/24 15:50:52 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	init_map(t_hashmap *map, size_t elemcount)
 	while (i < elemcount)
 	{
 		init_vector(&map->members[i].pairs, sizeof(char *));
+		i++;
 	}
 	return (0);
 }
@@ -45,6 +46,7 @@ t_pair	*get_element_colision(t_member *mem, t_hash hash)
 		pair = &((t_pair *)mem->pairs.ptr)[i];
 		if (pair->keyhash == hash)
 			return (pair);
+		i++;
 	}
 	return (NULL);
 }
