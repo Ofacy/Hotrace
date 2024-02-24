@@ -1,7 +1,15 @@
 NAME = hotrace
 
 SRCS_DIR = ./
-SRCS = main.c
+SRCS = main.c \
+	   get_next_line.c \
+	   ft_memcpy.c \
+	   ft_strn2join_free_s1.c \
+	   hash.c \
+	   hashmap.c \
+	   vector_init.c \
+	   clear_vector.c \
+	   add_vector.c \
 
 CFLAGS = -g3 -Wall -Wextra -Werror -MMD -MP
 

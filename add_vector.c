@@ -6,12 +6,12 @@
 /*   By: lespenel <lespenel@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 00:44:47 by lespenel          #+#    #+#             */
-/*   Updated: 2023/12/27 07:38:34 by lespenel         ###   ########.fr       */
+/*   Updated: 2024/02/24 15:37:39 by lespenel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
-#include "libft.h"
+#include "get_next_line.h"
 #include <stddef.h>
 #include <stdlib.h>
 
