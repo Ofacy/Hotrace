@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:11:06 by lcottet           #+#    #+#             */
-/*   Updated: 2024/02/24 15:33:40 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/24 16:00:40 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ t_hash	hash_str(char *str, size_t len)
 	b = 378551;
 	i = 0;
     while (i < len) {
-       hash = hash * a + str[i];
-       a *= b;
+    	hash = hash * a + str[i];
+    	a *= b;
+		i++;
     }
 	return (hash);
 }
