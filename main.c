@@ -6,18 +6,16 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:14:54 by lespenel          #+#    #+#             */
-/*   Updated: 2024/02/24 19:57:57 by lespenel         ###   ########.fr       */
+/*   Updated: 2024/02/24 20:09:01 by lespenel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <stdio.h>
-#include <stddef.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
-#include "hashmap.h"
 #include <errno.h>
+#include <string.h>
+#include "hashmap.h"
+#include "get_next_line.h"
 
 size_t	ft_strlen(char *str)
 {
@@ -33,10 +31,8 @@ int	fill_map(t_hashmap *map)
 {
 	char	*prompt;
 	t_pair	pair;
-	size_t	line_len;
 
-	line_len = 0;
-	prompt = "ddd";
+	prompt = "temp";
 	while (prompt)
 	{
 		prompt = get_next_line(STDIN_FILENO);
@@ -57,10 +53,8 @@ void	search_map(t_hashmap *map)
 {
 	char	*prompt;
 	t_pair	*pair;
-	size_t	line_len;
 
-	line_len = 0;
-	prompt = "ddd";
+	prompt = "temp";
 	while (prompt)
 	{
 		prompt = get_next_line(STDIN_FILENO);
@@ -69,7 +63,7 @@ void	search_map(t_hashmap *map)
 		pair = get_element(map, prompt, ft_strlen(prompt));
 		if (pair == NULL)
 		{
-			write(1, prompt, strlen(prompt) - 1);
+			write(1, prompt, ft_strlen(prompt) - 1);
 			write(1, ": Not found.\n", 13);
 		}
 		else
