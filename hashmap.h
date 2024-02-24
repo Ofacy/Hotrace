@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:09:12 by lcottet           #+#    #+#             */
-/*   Updated: 2024/02/24 19:09:08 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/24 19:35:26 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_pair
 	t_hash	keyhash;
 	char	*key;
 	char	*value;
-	size_t	value_len;
 }	t_pair;
 
 typedef struct s_member
