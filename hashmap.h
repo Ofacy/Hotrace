@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:09:12 by lcottet           #+#    #+#             */
-/*   Updated: 2024/02/24 17:24:39 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/24 18:42:06 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # include <stddef.h>
 # include "vector.h"
 
-int	ft_strcmp(char *s1, char *s2);
+# define HASHMAP_SIZE 100000
+
+int		ft_strcmp(char *s1, char *s2);
 
 typedef unsigned long	t_hash;
 t_hash	hash_str(char *str, size_t size);
@@ -36,11 +38,10 @@ typedef struct s_member
 // data elements are vectors that allows collision checks.
 typedef struct s_hashmap
 {
-	t_member	*members;
-	size_t		size;
+	t_member	members[HASHMAP_SIZE];
 }	t_hashmap;
 
-int		init_map(t_hashmap *map, size_t size);
+int		init_map(t_hashmap *map);
 int		add_element(t_hashmap *map, t_pair pair);
 t_pair	*get_element(t_hashmap *map, char *key, size_t keylen);
 void	clear_map(t_hashmap *map);

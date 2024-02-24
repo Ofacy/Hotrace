@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strn2join_free_s1.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lespenel <lespenel@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 22:14:27 by lespenel          #+#    #+#             */
-/*   Updated: 2024/02/24 14:44:27 by lespenel         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:27:07 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "get_next_line.h"
-# include <stdlib.h>
+#include "get_next_line.h"
+#include <stdlib.h>
 
 char	*ft_strn2join_free_s1(char *s1, char *s2, size_t n1, size_t n2)
 {
