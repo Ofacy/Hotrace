@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:09:12 by lcottet           #+#    #+#             */
-/*   Updated: 2024/02/24 18:42:06 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/24 19:09:08 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_pair
 	t_hash	keyhash;
 	char	*key;
 	char	*value;
+	size_t	value_len;
 }	t_pair;
 
 typedef struct s_member
@@ -41,7 +42,6 @@ typedef struct s_hashmap
 	t_member	members[HASHMAP_SIZE];
 }	t_hashmap;
 
-int		init_map(t_hashmap *map);
 int		add_element(t_hashmap *map, t_pair pair);
 t_pair	*get_element(t_hashmap *map, char *key, size_t keylen);
 void	clear_map(t_hashmap *map);

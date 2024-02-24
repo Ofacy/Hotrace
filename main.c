@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:14:54 by lespenel          #+#    #+#             */
-/*   Updated: 2024/02/24 18:53:32 by lespenel         ###   ########.fr       */
+/*   Updated: 2024/02/24 19:34:43 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,12 @@ int	fill_map(t_hashmap *map)
 	{
 		prompt = get_next_line(STDIN_FILENO, &line_len);
 		if (prompt == NULL || prompt[0] == '\n')
-			break;
+			break ;
 		pair.key = prompt;
 		pair.keyhash = hash_str(pair.key, line_len);
 		prompt = get_next_line(STDIN_FILENO, &line_len);
 		pair.value = prompt;
+		pair.value_len = line_len;
 		if (add_element(map, pair))
 			return (-1);
 	}
@@ -53,7 +54,7 @@ int	fill_map(t_hashmap *map)
 	return (0);
 }
 
-int	search_map(t_hashmap *map)
+void	search_map(t_hashmap *map)
 {
 	char	*prompt;
 	t_pair	*pair;
@@ -65,32 +66,29 @@ int	search_map(t_hashmap *map)
 	{
 		prompt = get_next_line(STDIN_FILENO, &line_len);
 		if (prompt == NULL)
-			break;
+			break ;
 		pair = get_element(map, prompt, line_len);
 		if (pair == NULL)
 		{
-			write(1, prompt, line_len - 1);
+			write(1, prompt, strlen(prompt));
 			write(1, ": Not found.\n", 13);
 		}
 		else
-		{
-			write(1, pair->value, ft_strlen(pair->value));
-		}
+			write(1, pair->value, pair->value_len);
 		free(prompt);
 	}
-	return (0);
 }
 
 int	main(void)
 {
-	t_hashmap	map;
+	static t_hashmap	map;
 
-	if (init_map(&map))
-		return (-1);
 	if (fill_map(&map) == -1)
+	{
+		clear_map(&map);
 		return (-1);
-	if (search_map(&map) == -1)
-		return (-1);
+	}
+	search_map(&map);
 	clear_map(&map);
 	return (0);
 }
