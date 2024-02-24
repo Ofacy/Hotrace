@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:14:54 by lespenel          #+#    #+#             */
-/*   Updated: 2024/02/24 20:09:01 by lespenel         ###   ########.fr       */
+/*   Updated: 2024/02/24 20:42:00 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	fill_map(t_hashmap *map)
 void	search_map(t_hashmap *map)
 {
 	char	*prompt;
+	size_t	prompt_len;
 	t_pair	*pair;
 
 	prompt = "temp";
@@ -60,10 +61,13 @@ void	search_map(t_hashmap *map)
 		prompt = get_next_line(STDIN_FILENO);
 		if (prompt == NULL)
 			break ;
-		pair = get_element(map, prompt, ft_strlen(prompt));
+		prompt_len = ft_strlen(prompt);
+		pair = get_element(map, prompt, prompt_len);
 		if (pair == NULL)
 		{
-			write(1, prompt, ft_strlen(prompt) - 1);
+			if (prompt[prompt_len - 1] == '\n')
+				prompt_len -= 1;
+			write(1, prompt, prompt_len);
 			write(1, ": Not found.\n", 13);
 		}
 		else
