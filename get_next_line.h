@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 04:46:04 by lespenel          #+#    #+#             */
-/*   Updated: 2024/02/24 17:15:34 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/24 18:13:11 by lespenel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_buff
 }	t_buff;
 
 void	*ft_memcpy(void *dest, const void *src, size_t n);
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, size_t *line_len);
 char	*ft_strn2join_free_s1(char *s1, char *s2, size_t n1, size_t n2);
 char	*ft_strnchr(const char *s, int c, size_t n);
 
