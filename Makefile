@@ -20,7 +20,7 @@ OBJECTS = ${SRCS:%.c=$(OUTDIR)/%.o}
 DEPS_FILES = ${OBJECTS:.o=.d}
 
 
-all: lib $(NAME)
+all: $(NAME)
 
 norm:
 	norminette
@@ -28,7 +28,7 @@ norm:
 -include $(DEPS_FILES)
 
 ${NAME}: $(OBJECTS)
-	cc $(CFLAGS) -lpthread -o $(NAME) $(OBJECTS)
+	cc $(CFLAGS) -o $(NAME) $(OBJECTS)
 
 $(OUTDIR)/%.o: $(SRCS_DIR)/%.c | $(OUTDIR)
 	cc $(CFLAGS) -o $@ -c $<
@@ -43,4 +43,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: lib clean fclean re all norm
+.PHONY: clean fclean re all norm
