@@ -10,6 +10,7 @@ SRCS = main.c \
 	   vector_init.c \
 	   clear_vector.c \
 	   add_vector.c \
+	   ft_strcmp.c \
 
 CFLAGS = -g3 -Wall -Wextra -Werror -MMD -MP
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lespenel <lespenel@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:14:54 by lespenel          #+#    #+#             */
-/*   Updated: 2024/02/24 16:11:29 by lespenel         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:14:37 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ int	search_map(t_hashmap *map)
 		pair = get_element(map, prompt, ft_strlen(prompt));
 		if (pair == NULL)
 		{
-			write(1, "Not found.", 9);
+			write(1, prompt, ft_strlen(prompt) - 1);
+			write(1, ": Not found.\n", 13);
 		}
 		else
 		{
@@ -78,7 +79,7 @@ int	main(void)
 {
 	t_hashmap	map;
 
-	if (init_map(&map, 5000))
+	if (init_map(&map, 100000))
 		return (-1);
 	if (fill_map(&map) == -1)
 		return (-1);

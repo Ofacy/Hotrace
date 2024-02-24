@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:09:12 by lcottet           #+#    #+#             */
-/*   Updated: 2024/02/24 15:36:10 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/24 17:24:39 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stddef.h>
 # include "vector.h"
+
+int	ft_strcmp(char *s1, char *s2);
 
 typedef unsigned long	t_hash;
 t_hash	hash_str(char *str, size_t size);
