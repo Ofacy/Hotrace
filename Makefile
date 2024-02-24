@@ -1,4 +1,4 @@
-NAME = philo
+NAME = hotrace
 
 SRCS_DIR = ./
 SRCS = main.c
