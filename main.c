@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:14:54 by lespenel          #+#    #+#             */
-/*   Updated: 2024/02/24 19:49:28 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/24 19:57:57 by lespenel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int	fill_map(t_hashmap *map)
 	prompt = "ddd";
 	while (prompt)
 	{
-		prompt = get_next_line(STDIN_FILENO, &line_len);
+		prompt = get_next_line(STDIN_FILENO);
 		if (prompt == NULL || prompt[0] == '\n')
 			break ;
 		pair.key = prompt;
-		pair.keyhash = hash_str(pair.key, line_len);
-		prompt = get_next_line(STDIN_FILENO, &line_len);
+		pair.keyhash = hash_str(pair.key, ft_strlen(pair.key));
+		prompt = get_next_line(STDIN_FILENO);
 		pair.value = prompt;
 		if (add_element(map, pair))
 			return (-1);
@@ -63,19 +63,34 @@ void	search_map(t_hashmap *map)
 	prompt = "ddd";
 	while (prompt)
 	{
-		prompt = get_next_line(STDIN_FILENO, &line_len);
+		prompt = get_next_line(STDIN_FILENO);
 		if (prompt == NULL)
 			break ;
-		pair = get_element(map, prompt, line_len);
+		pair = get_element(map, prompt, ft_strlen(prompt));
 		if (pair == NULL)
 		{
 			write(1, prompt, strlen(prompt) - 1);
 			write(1, ": Not found.\n", 13);
 		}
 		else
-			write(1, pair->value, strlen(pair->value));
+			write(1, pair->value, ft_strlen(pair->value));
 		free(prompt);
 	}
+}
+
+int	print_errno(t_hashmap *map)
+{
+	char	*errno_str;
+
+	clear_map(map);
+	if (errno)
+	{
+		errno_str = strerror(errno);
+		write(2, errno_str, ft_strlen(errno_str));
+		write(2, "\n", 1);
+		return (-1);
+	}
+	return (0);
 }
 
 int	main(void)
@@ -88,6 +103,6 @@ int	main(void)
 		return (-1);
 	}
 	search_map(&map);
-	clear_map(&map);
+	print_errno(&map);
 	return (0);
 }

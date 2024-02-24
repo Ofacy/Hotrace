@@ -6,7 +6,7 @@
 /*   By: lespenel <lespenel@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 06:14:36 by lespenel          #+#    #+#             */
-/*   Updated: 2024/02/24 18:47:56 by lespenel         ###   ########.fr       */
+/*   Updated: 2024/02/24 19:35:39 by lespenel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		join_line(t_buff *buff, char **line, size_t *line_len);
 void	joinchr(t_buff *buff, size_t line_len, char **line, char **ptr);
 ssize_t	read_lines(int fd, t_buff *buff);
 
-char	*get_next_line(int fd, size_t *line_l)
+char	*get_next_line(int fd)
 {
 	static t_buff	buff = {{0}, 0, 0};
 	char			*line;
@@ -42,7 +42,6 @@ char	*get_next_line(int fd, size_t *line_l)
 			return (line);
 	}
 	joinchr(&buff, line_len, &line, &ptr);
-	*line_l = line_len + ptr - (buff.buff + buff.start);
 	if (line == NULL)
 		return (free(line), NULL);
 	return (buff.start = ptr - buff.buff, line);
