@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:14:30 by lcottet           #+#    #+#             */
-/*   Updated: 2024/02/24 15:23:00 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/24 15:36:01 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ int	add_element(t_hashmap *map, t_pair pair)
 	return (add_vector(&map->members[pair.keyhash % map->size].pairs, &pair));
 }
 
-t_pair	*get_element_colision(t_member *mem, t_hash hash,
-							char *key, size_t keylen)
+t_pair	*get_element_colision(t_member *mem, t_hash hash)
 {
 	size_t	i;
 	t_pair	*pair;
@@ -57,10 +56,10 @@ t_pair	*get_element(t_hashmap *map, char *key, size_t keylen)
 
 	hash = hash_str(key, keylen);
 	mindex = hash % map->size;
-	return (get_element_colision(&map->members[mindex], hash, key, keylen));
+	return (get_element_colision(&map->members[mindex], hash));
 }
 
-int	clear_map(t_hashmap *map)
+void	clear_map(t_hashmap *map)
 {
 	size_t	i;
 	size_t	j;
