@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:14:30 by lcottet           #+#    #+#             */
-/*   Updated: 2024/02/24 15:53:44 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/24 15:56:57 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	init_map(t_hashmap *map, size_t elemcount)
 	i = 0;
 	while (i < elemcount)
 	{
-		init_vector(&map->members[i].pairs, sizeof(char *));
+		init_vector(&map->members[i].pairs, sizeof(t_pair));
 		i++;
 	}
 	return (0);
