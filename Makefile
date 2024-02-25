@@ -12,7 +12,7 @@ SRCS = main.c \
 	   add_vector.c \
 	   ft_strcmp.c \
 
-CFLAGS = -g3 -Wall -Wextra -Werror -MMD -MP
+CFLAGS = -Wall -Wextra -Werror -MMD -MP
 
 OUTDIR = obj
 OBJECTS = ${SRCS:%.c=$(OUTDIR)/%.o}

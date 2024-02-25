@@ -6,13 +6,13 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:11:06 by lcottet           #+#    #+#             */
-/*   Updated: 2024/02/24 18:26:41 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/25 14:20:07 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hashmap.h"
 
-t_hash	hash_str(char *str, size_t len)
+t_hash	hash_str(char *str, size_t *len)
 {
 	t_hash	a;
 	t_hash	b;
@@ -23,11 +23,13 @@ t_hash	hash_str(char *str, size_t len)
 	a = 63689;
 	b = 378551;
 	i = 0;
-	while (i < len)
+	while (str[i])
 	{
 		hash = hash * a + str[i];
 		a *= b;
 		i++;
 	}
+	if (len)
+		*len = i;
 	return (hash);
 }

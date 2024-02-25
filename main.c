@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:14:54 by lespenel          #+#    #+#             */
-/*   Updated: 2024/02/24 20:42:00 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/25 14:13:24 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	fill_map(t_hashmap *map)
 		if (prompt == NULL || prompt[0] == '\n')
 			break ;
 		pair.key = prompt;
-		pair.keyhash = hash_str(pair.key, ft_strlen(pair.key));
+		pair.keyhash = hash_str(pair.key, NULL);
 		prompt = get_next_line(STDIN_FILENO);
 		pair.value = prompt;
 		if (add_element(map, pair))
@@ -54,6 +54,7 @@ void	search_map(t_hashmap *map)
 	char	*prompt;
 	size_t	prompt_len;
 	t_pair	*pair;
+	t_hash	hash;
 
 	prompt = "temp";
 	while (prompt)
@@ -61,8 +62,8 @@ void	search_map(t_hashmap *map)
 		prompt = get_next_line(STDIN_FILENO);
 		if (prompt == NULL)
 			break ;
-		prompt_len = ft_strlen(prompt);
-		pair = get_element(map, prompt, prompt_len);
+		hash = hash_str(prompt, &prompt_len);
+		pair = get_element(map, hash, prompt);
 		if (pair == NULL)
 		{
 			if (prompt[prompt_len - 1] == '\n')

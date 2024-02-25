@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 04:46:04 by lespenel          #+#    #+#             */
-/*   Updated: 2024/02/24 19:35:52 by lespenel         ###   ########.fr       */
+/*   Updated: 2024/02/25 13:14:14 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stddef.h>
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10024
+#  define BUFFER_SIZE 100000
 # endif
 
 typedef struct s_buff

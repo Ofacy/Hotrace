@@ -6,14 +6,13 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:09:12 by lcottet           #+#    #+#             */
-/*   Updated: 2024/02/24 19:35:26 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/25 13:55:08 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HASHMAP_H
 # define HASHMAP_H
 
-# include <stddef.h>
 # include "vector.h"
 
 # define HASHMAP_SIZE 100000
@@ -21,7 +20,7 @@
 int		ft_strcmp(char *s1, char *s2);
 
 typedef unsigned long	t_hash;
-t_hash	hash_str(char *str, size_t size);
+t_hash	hash_str(char *str, size_t *len);
 
 typedef struct s_pair
 {
@@ -42,7 +41,7 @@ typedef struct s_hashmap
 }	t_hashmap;
 
 int		add_element(t_hashmap *map, t_pair pair);
-t_pair	*get_element(t_hashmap *map, char *key, size_t keylen);
+t_pair	*get_element(t_hashmap *map, t_hash hash, char *key);
 void	clear_map(t_hashmap *map);
 
 #endif

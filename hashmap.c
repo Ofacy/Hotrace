@@ -6,7 +6,7 @@
 /*   By: lcottet <lcottet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:14:30 by lcottet           #+#    #+#             */
-/*   Updated: 2024/02/24 19:08:57 by lcottet          ###   ########.fr       */
+/*   Updated: 2024/02/25 13:54:57 by lcottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,10 @@ t_pair	*get_element_colision(t_member *mem, t_hash hash, char *key)
 	return (NULL);
 }
 
-t_pair	*get_element(t_hashmap *map, char *key, size_t keylen)
+t_pair	*get_element(t_hashmap *map, t_hash hash, char *key)
 {
 	size_t	mindex;
-	t_hash	hash;
 
-	hash = hash_str(key, keylen);
 	mindex = hash % HASHMAP_SIZE;
 	return (get_element_colision(&map->members[mindex], hash, key));
 }
